@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaurav Career Academy | Video Lectures</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    /* Dynamic Theme Variables */
+    :root {
+      --primary: #f97316;
+      --primary-hover: #ea580c;
+      --primary-bg: rgba(249, 115, 22, 0.1);
+      --primary-border: rgba(249, 115, 22, 0.3);
+      --primary-shadow: rgba(249, 115, 22, 0.35);
+    }
+
+    [data-theme="blue"] {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-bg: rgba(37, 99, 235, 0.1);
+      --primary-border: rgba(37, 99, 235, 0.3);
+      --primary-shadow: rgba(37, 99, 235, 0.35);
+    }
+
+    [data-theme="green"] {
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --primary-bg: rgba(16, 185, 129, 0.1);
+      --primary-border: rgba(16, 185, 129, 0.3);
+      --primary-shadow: rgba(16, 185, 129, 0.35);
+    }
+
+    /* Floating Background Animations */
+    .bg-study-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      opacity: 0.06;
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(6deg); }
+    }
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(20px) rotate(-6deg); }
+    }
+
+    .animate-float-1 { animation: floatSlow 7s ease-in-out infinite; }
+    .animate-float-2 { animation: floatReverse 9s ease-in-out infinite; }
+
+    /* Interactive Video Card Hover Effects */
+    .video-card {
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .video-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary) !important;
+      box-shadow: 0 15px 30px -10px var(--primary-shadow);
+    }
+
+    /* Helper Classes */
+    .theme-bg { background-color: var(--primary) !important; }
+    .theme-text { color: var(--primary) !important; }
+    .theme-border { border-color: var(--primary) !important; }
+    .theme-badge { 
+      background-color: var(--primary-bg) !important; 
+      color: var(--primary) !important; 
+      border-color: var(--primary-border) !important; 
+    }
+  </style>
+</head>
+<body data-theme="orange" class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between relative overflow-x-hidden">
+
+  <!-- Background Decorative Icons -->
+  <div class="bg-study-overlay">
+    <i class="fa-solid fa-video text-9xl theme-text absolute top-12 left-10 animate-float-1"></i>
+    <i class="fa-solid fa-play text-9xl text-white absolute top-1/3 right-12 animate-float-2"></i>
+    <i class="fa-solid fa-graduation-cap text-8xl theme-text absolute bottom-1/4 left-16 animate-float-1"></i>
+    <i class="fa-solid fa-laptop-code text-9xl text-white absolute bottom-10 right-1/4 animate-float-2"></i>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+      
+      <!-- Brand Identity -->
+      <a href="index.html" class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl theme-bg flex items-center justify-center font-extrabold text-white text-lg shadow-lg">
+          GCA
+        </div>
+        <div>
+          <h1 class="text-xl font-black text-white tracking-tight">GAURAV CAREER ACADEMY</h1>
+          <p class="text-[11px] theme-text font-bold uppercase tracking-wider">Learn • Practice • Succeed</p>
+        </div>
+      </a>
+
+      <!-- Controls & Links -->
+      <div class="flex flex-wrap items-center gap-3 text-xs">
+        
+        <!-- Theme Controls -->
+        <div class="bg-slate-800 p-1.5 rounded-xl border border-slate-700 flex items-center gap-1.5">
+          <span class="text-[10px] text-slate-400 font-bold px-1 uppercase">Theme:</span>
+          <button onclick="setTheme('orange')" class="w-5 h-5 rounded-full bg-orange-500 ring-2 ring-slate-900 hover:scale-110 transition-transform" title="Orange Theme"></button>
+          <button onclick="setTheme('blue')" class="w-5 h-5 rounded-full bg-blue-600 ring-2 ring-slate-900 hover:scale-110 transition-transform" title="Blue Theme"></button>
+          <button onclick="setTheme('green')" class="w-5 h-5 rounded-full bg-emerald-500 ring-2 ring-slate-900 hover:scale-110 transition-transform" title="Green Theme"></button>
+        </div>
+
+        <a href="index.html" class="bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-300 py-2 px-3.5 rounded-xl font-semibold flex items-center gap-2 transition-all">
+          <i class="fa-solid fa-file-pdf theme-text text-sm"></i> 
+          <span>PDF Notes</span>
+        </a>
+
+        <a href="https://wa.me/917745036055" target="_blank" class="bg-slate-800/80 hover:bg-slate-700 border border-slate-700 theme-text py-2 px-3.5 rounded-xl font-semibold flex items-center gap-2 transition-all">
+          <i class="fab fa-whatsapp text-emerald-400 text-sm"></i> 
+          <span>WhatsApp</span>
+        </a>
+
+        <a href="about.html" class="bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-300 py-2 px-3.5 rounded-xl font-semibold flex items-center gap-2 transition-all">
+          <i class="fa-solid fa-user theme-text text-sm"></i> 
+          <span>About Us</span>
+        </a>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full space-y-8 relative z-10">
+    
+    <!-- Hero Title -->
+    <div class="text-center space-y-2">
+      <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        Video <span class="theme-text">Lectures & Tutorials</span>
+      </h2>
+      <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto">
+        Watch free concepts, shortcut trick sessions, and strategy guidance videos.
+      </p>
+    </div>
+
+    <!-- Search & Filters -->
+    <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-4 backdrop-blur-md">
+      
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-500 text-sm"></i>
+        <input 
+          type="text" 
+          id="searchInput" 
+          onkeyup="filterVideos()" 
+          placeholder="Search videos by title, topic, or exam..." 
+          class="w-full bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-xs sm:text-sm rounded-xl pl-11 pr-4 py-3 focus:outline-none focus:border-orange-500 transition-colors"
+        >
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 text-xs font-semibold" id="categoryTabs">
+        <button onclick="filterCategory('All')" class="category-btn active bg-slate-800 text-white border border-slate-700 px-4 py-2 rounded-xl transition-all">All</button>
+        <button onclick="filterCategory('SSC')" class="category-btn bg-slate-950 text-slate-400 border border-slate-800 hover:text-white px-4 py-2 rounded-xl transition-all">SSC</button>
+        <button onclick="filterCategory('Railway')" class="category-btn bg-slate-950 text-slate-400 border border-slate-800 hover:text-white px-4 py-2 rounded-xl transition-all">Railway</button>
+        <button onclick="filterCategory('Banking')" class="category-btn bg-slate-950 text-slate-400 border border-slate-800 hover:text-white px-4 py-2 rounded-xl transition-all">Banking</button>
+        <button onclick="filterCategory('Police Bharti')" class="category-btn bg-slate-950 text-slate-400 border border-slate-800 hover:text-white px-4 py-2 rounded-xl transition-all">Police Bharti</button>
+      </div>
+
+    </div>
+
+    <!-- Videos Grid -->
+    <div id="videosContainer" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <!-- Dynamically Rendered -->
+    </div>
+
+  </main>
+
+  <!-- Embedded Video Player Modal -->
+  <div id="videoModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 hidden flex-col justify-between">
+    
+    <div class="bg-slate-900 border-b border-slate-800 px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-circle-play theme-text text-xl"></i>
+        <div>
+          <h3 id="modalVideoTitle" class="text-sm font-bold text-white truncate max-w-xs sm:max-w-md">Video Player</h3>
+          <p class="text-[11px] text-slate-400">Gaurav Career Academy Free Classes</p>
+        </div>
+      </div>
+
+      <button onclick="closeVideoModal()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 w-8 h-8 rounded-xl flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark text-base"></i>
+      </button>
+    </div>
+
+    <div class="flex-grow w-full bg-slate-950 p-2 sm:p-4 flex items-center justify-center">
+      <iframe id="videoIframe" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="w-full max-w-4xl h-[300px] sm:h-[480px] rounded-xl border border-slate-800 bg-black"></iframe>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900/90 border-t border-slate-800 py-6 text-slate-400 text-xs relative z-10 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div>
+        <p class="font-semibold text-slate-300">© 2026 Gaurav Career Academy. All rights reserved.</p>
+        <p class="text-[11px] text-slate-500 mt-0.5">Owner: Gaurav Ravindra Gardade | Contact: +91 77450 36055</p>
+      </div>
+      <div class="flex gap-4 text-slate-400">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <span>•</span>
+        <a href="videos.html" class="hover:text-white transition-colors">Videos</a>
+        <span>•</span>
+        <a href="about.html" class="hover:text-white transition-colors">About Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Fallback Videos List
+    const defaultVideos = [
+      {
+        id: "1",
+        title: "SSC CGL 2026: Complete Algebra Shortcuts Class",
+        exam: "SSC",
+        subject: "Mathematics",
+        duration: "27 Mins",
+        videoUrl: "https://www.youtube.com/embed/9Ib6eB90n8o",
+        description: "Complete Algebra shortcut techniques and practice questions."
+      },
+      {
+        id: "2",
+        title: "Railway Group D: Top 50 History Questions",
+        exam: "Railway",
+        subject: "General Awareness",
+        duration: "30 Mins",
+        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        description: "Important history questions for upcoming Railway exams."
+      }
+    ];
+
+    let allVideos = [];
+    let activeCategory = 'All';
+
+    async function loadVideosData() {
+      try {
+        const response = await fetch('videos.json');
+        if (!response.ok) throw new Error("JSON file response error");
+        allVideos = await response.json();
+      } catch (error) {
+        console.warn("Using fallback video data list.");
+        allVideos = defaultVideos;
+      }
+      renderVideos(allVideos);
+    }
+
+    function formatYouTubeEmbedUrl(url) {
+      if (!url) return '';
+      // Convert standard share URLs (youtu.be/ID) or watch URLs (youtube.com/watch?v=ID) to embed format
+      if (url.includes('youtu.be/')) {
+        const videoId = url.split('youtu.be/')[1].split('?')[0];
+        return `https://www.youtube.com/embed/${videoId}`;
+      } else if (url.includes('watch?v=')) {
+        const videoId = url.split('watch?v=')[1].split('&')[0];
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+      return url;
+    }
+
+    function renderVideos(videosList) {
+      const container = document.getElementById('videosContainer');
+      
+      if (videosList.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full text-center py-12 bg-slate-900/50 border border-slate-800 rounded-2xl">
+            <i class="fa-solid fa-video-slash text-4xl text-slate-600 mb-3"></i>
+            <p class="text-sm text-slate-400 font-semibold">No video lectures found for this category.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = videosList.map(video => {
+        const rawUrl = video.videoUrl || video.embedUrl || '';
+        const embedUrl = formatYouTubeEmbedUrl(rawUrl);
+        const videoDuration = video.duration ? `<span class="text-[11px] text-slate-400 font-medium ml-2"><i class="fa-regular fa-clock mr-1"></i>${video.duration}</span>` : '';
+        const descriptionText = video.description || 'Watch complete video lecture to prepare for competitive examinations.';
+
+        return `
+          <div class="video-card bg-slate-900/90 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between shadow-lg backdrop-blur-md">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="theme-badge border text-[11px] px-2.5 py-1 rounded-lg font-extrabold uppercase tracking-wider">${video.exam}</span>
+                <div class="flex items-center">
+                  <span class="text-xs text-slate-400 font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-clapperboard theme-text text-[10px]"></i> ${video.subject}
+                  </span>
+                  ${videoDuration}
+                </div>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2 leading-snug">${video.title}</h3>
+              <p class="text-xs text-slate-400 mb-6 leading-relaxed">${descriptionText}</p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800/80">
+              <button onclick="openVideoModal('${embedUrl}', '${video.title.replace(/'/g, "\\'")}')" 
+                      class="w-full theme-bg hover:opacity-90 text-white text-xs font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md">
+                <i class="fa-solid fa-play"></i>
+                <span>Watch Video</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openVideoModal(embedUrl, title) {
+      document.getElementById('modalVideoTitle').innerText = title;
+      document.getElementById('videoIframe').src = embedUrl;
+      document.getElementById('videoModal').classList.remove('hidden');
+      document.getElementById('videoModal').classList.add('flex');
+    }
+
+    function closeVideoModal() {
+      document.getElementById('videoModal').classList.remove('flex');
+      document.getElementById('videoModal').classList.add('hidden');
+      document.getElementById('videoIframe').src = '';
+    }
+
+    function filterVideos() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = allVideos.filter(video => {
+        const matchesQuery = video.title.toLowerCase().includes(query) || 
+                             video.subject.toLowerCase().includes(query) ||
+                             video.exam.toLowerCase().includes(query) ||
+                             (video.description && video.description.toLowerCase().includes(query));
+        const matchesCategory = activeCategory === 'All' || video.exam.toLowerCase() === activeCategory.toLowerCase();
+        return matchesQuery && matchesCategory;
+      });
+      renderVideos(filtered);
+    }
+
+    function filterCategory(category) {
+      activeCategory = category;
+      const buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach(btn => {
+        if (btn.innerText === category) {
+          btn.className = "category-btn active theme-bg text-white border border-transparent px-4 py-2 rounded-xl transition-all shadow-md";
+        } else {
+          btn.className = "category-btn bg-slate-950 text-slate-400 border border-slate-800 hover:text-white px-4 py-2 rounded-xl transition-all";
+        }
+      });
+      filterVideos();
+    }
+
+    function setTheme(colorTheme) {
+      document.body.setAttribute('data-theme', colorTheme);
+      localStorage.setItem('selectedTheme', colorTheme);
+    }
+
+    const savedTheme = localStorage.getItem('selectedTheme') || 'orange';
+    setTheme(savedTheme);
+
+    loadVideosData();
+  </script>
+</body>
+</html>
