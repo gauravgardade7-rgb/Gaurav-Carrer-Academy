@@ -9,6 +9,14 @@
   },
   {
     "id": "2",
+    "title": "SSC Maths Part 1",
+    "exam": "SSC",
+    "subject": "General Awareness",
+    "description": "Maths Part 1 Chapter 1st",
+    "pdfUrl": "https://drive.google.com/file/d/1MgHzv8sV7NLAHHdTUnpWrQ0z0aw-oohi/preview"
+  },
+  {
+    "id": "2",
     "title": "Modern Indian History Top 500 MCQs",
     "exam": "Railway",
     "subject": "General Awareness",
